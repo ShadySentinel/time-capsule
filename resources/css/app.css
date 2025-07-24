@@ -9,3 +9,29 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+body {
+    padding-top: 70px;
+}
+.capsule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+.capsule-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+}
+.map-container {
+    position: relative;
+    height: 300px;
+    background: #e0f7fa;
+    border: 1px solid #ccc;
+}
+.map-marker {
+    position: absolute;
+    font-size: 24px;
+    cursor: pointer;
+    color: #d32f2f;
+}
