@@ -4,18 +4,33 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Capsule;
+use App\Http\Controllers\Controller;
 
 class CapsuleController extends Controller
 {
-    public function store(Request $request)
-    {
-        return response()->json(['message' => 'Capsule saved! (mocked)']);
+    function getAllCapsules(){
+    $capsules = CapsuleService::getAllCapsules();
+    return  $this->responseJSON($capsules,200);
     }
 
-    public function publicCapsules()
-    {
-        return response()->json([
-            ['message' => 'See you in 2040 habibi!', 'reveal_at' => '2030-01-01']
-        ]);
+    function addCapsule(CapsuleCreateRequest $request){
+    $capsule = CapsuleService::createCapsule($request);
+    return  $this->responseJSON($capsule,200);
     }
+
+function getCapsulesByUserId($userId) {
+    $capsules = CapsuleService::getCapsulesByUserId($userId);
+    return $this->responseJSON($capsules, 200);
+}
+
+
+    function getAllPublicCapsules(Request $request){
+    $capsules = CapsuleService::getAllPublicCapsules($request);
+    return  $this->responseJSON($capsules,200);
+}
+
+    function deleteCapsule($id){
+    $capsule = CapsuleService::deleteCapsule($id);
+    return $this->responseJSON($capsule,200);
+}
 }
