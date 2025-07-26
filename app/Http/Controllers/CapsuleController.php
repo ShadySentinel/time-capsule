@@ -18,7 +18,7 @@ class CapsuleController extends Controller
     return  $this->responseJSON($capsule,200);
     }
 
-function getCapsulesByUserId($userId) {
+    function getCapsulesByUserId($userId) {
     $capsules = CapsuleService::getCapsulesByUserId($userId);
     return $this->responseJSON($capsules, 200);
 }
